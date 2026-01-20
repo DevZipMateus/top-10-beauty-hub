@@ -14,15 +14,13 @@ const Vitrine = () => {
 
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
-      {/* Header - 80px (h-20 = 5rem) */}
-      <Header />
+      {/* Header - solid, not fixed */}
+      <div className="h-20 flex-shrink-0 w-full bg-background">
+        <Header />
+      </div>
       
-      {/* Spacer for fixed header */}
-      <div className="h-20 flex-shrink-0" />
-      
-      {/* Main Content - iframe */}
-      {/* Height = 100vh - 80px (header) */}
-      <main className="flex-1 w-full" style={{ height: 'calc(100vh - 80px)' }}>
+      {/* Main Content - iframe fills remaining space */}
+      <main className="flex-1 w-full">
         <iframe 
           src="https://top10cosmeticos.egestor.com.br/vitrine/"
           className="w-full h-full border-none"
