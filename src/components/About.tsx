@@ -1,8 +1,16 @@
 import { Target, Eye, Heart, History, Sparkles, Shield, Users, TrendingUp } from 'lucide-react';
+import useScrollReveal from '@/hooks/useScrollReveal';
 import aboutBg from '@/assets/about-bg.jpg';
 import storeInterior from '@/assets/store-interior.jpg';
 
 const About = () => {
+  const headerReveal = useScrollReveal();
+  const historyReveal = useScrollReveal();
+  const imageReveal = useScrollReveal();
+  const missionReveal = useScrollReveal();
+  const visionReveal = useScrollReveal();
+  const valuesReveal = useScrollReveal();
+
   const values = [
     { icon: Heart, title: 'Acessibilidade', desc: 'Beleza ao alcance de todos' },
     { icon: Shield, title: 'Qualidade', desc: 'Produtos selecionados' },
@@ -23,9 +31,12 @@ const About = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerReveal.ref}
+          className={`text-center mb-16 reveal ${headerReveal.isVisible ? 'visible' : ''}`}
+        >
           <span className="inline-flex items-center gap-2 text-primary font-medium mb-4">
-            <Sparkles size={16} />
+            <Sparkles size={16} className="animate-sparkle" />
             Conheça a Top 10
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -38,9 +49,12 @@ const About = () => {
 
         {/* History */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          <div className="order-2 lg:order-1">
+          <div 
+            ref={historyReveal.ref}
+            className={`order-2 lg:order-1 reveal-left ${historyReveal.isVisible ? 'visible' : ''}`}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-primary/10 rounded-xl backdrop-blur-sm">
+              <div className="p-3 bg-primary/10 rounded-xl backdrop-blur-sm hover-glow transition-all duration-300">
                 <History className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-bold text-foreground">Nossa história</h3>
@@ -52,22 +66,25 @@ const About = () => {
               Inaugurada em <span className="text-primary font-semibold">13 de dezembro de 2025</span>, a Top 10 surge para fortalecer a região atuando nas necessidades da população local, oferecendo produtos de qualidade a preço único.
             </p>
           </div>
-          <div className="order-1 lg:order-2 relative">
-            <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl transform rotate-3" />
-            <div className="relative rounded-3xl overflow-hidden shadow-elegant border border-border">
+          <div 
+            ref={imageReveal.ref}
+            className={`order-1 lg:order-2 relative reveal-right ${imageReveal.isVisible ? 'visible' : ''}`}
+          >
+            <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl transform rotate-3 animate-pulse-glow" />
+            <div className="relative rounded-3xl overflow-hidden shadow-elegant border border-border group">
               <img 
                 src={storeInterior} 
                 alt="Interior da loja Top 10 Cosméticos" 
-                className="w-full h-80 object-cover"
+                className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3">
+                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3 hover-lift">
                     <span className="block text-2xl font-display font-bold text-primary">2025</span>
                     <span className="text-xs text-muted-foreground">Fundação</span>
                   </div>
-                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3">
+                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3 hover-lift">
                     <span className="block text-2xl font-display font-bold text-gold">100%</span>
                     <span className="text-xs text-muted-foreground">Preço único</span>
                   </div>
@@ -80,9 +97,12 @@ const About = () => {
         {/* Mission, Vision */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-elegant border border-border hover:border-primary/30 transition-colors duration-300">
+          <div 
+            ref={missionReveal.ref}
+            className={`glass-card rounded-2xl p-8 shadow-elegant border border-border hover:border-primary/30 hover-glow transition-all duration-300 reveal-left ${missionReveal.isVisible ? 'visible' : ''}`}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-primary/10 rounded-xl">
+              <div className="p-3 bg-primary/10 rounded-xl animate-bounce-subtle">
                 <Target className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-xl font-bold text-foreground">Missão</h3>
@@ -93,9 +113,12 @@ const About = () => {
           </div>
 
           {/* Vision */}
-          <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-elegant border border-border hover:border-gold/30 transition-colors duration-300">
+          <div 
+            ref={visionReveal.ref}
+            className={`glass-card rounded-2xl p-8 shadow-elegant border border-border hover:border-gold/30 hover-glow transition-all duration-300 reveal-right ${visionReveal.isVisible ? 'visible' : ''}`}
+          >
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-gold/10 rounded-xl">
+              <div className="p-3 bg-gold/10 rounded-xl animate-bounce-subtle" style={{ animationDelay: '0.5s' }}>
                 <Eye className="w-6 h-6 text-gold" />
               </div>
               <h3 className="font-display text-xl font-bold text-foreground">Visão</h3>
@@ -107,22 +130,27 @@ const About = () => {
         </div>
 
         {/* Values */}
-        <div className="text-center mb-8">
-          <h3 className="font-display text-2xl font-bold text-foreground">Nossos valores</h3>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="group bg-card/90 backdrop-blur-sm rounded-xl p-6 text-center border border-border hover:border-primary/30 hover:shadow-elegant transition-all duration-300"
-            >
-              <div className="inline-flex p-4 bg-secondary rounded-full mb-4 group-hover:bg-primary/10 transition-colors duration-300">
-                <value.icon className="w-6 h-6 text-primary" />
+        <div 
+          ref={valuesReveal.ref}
+          className={`reveal ${valuesReveal.isVisible ? 'visible' : ''}`}
+        >
+          <div className="text-center mb-8">
+            <h3 className="font-display text-2xl font-bold text-foreground">Nossos valores</h3>
+          </div>
+          <div className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children ${valuesReveal.isVisible ? 'visible' : ''}`}>
+            {values.map((value, index) => (
+              <div
+                key={index}
+                className="group glass-card rounded-xl p-6 text-center border border-border hover:border-primary/30 hover-lift transition-all duration-300"
+              >
+                <div className="inline-flex p-4 bg-secondary rounded-full mb-4 group-hover:bg-primary/10 group-hover:glow-primary transition-all duration-300">
+                  <value.icon className="w-6 h-6 text-primary group-hover:animate-sparkle" />
+                </div>
+                <h4 className="font-display font-bold text-foreground mb-2">{value.title}</h4>
+                <p className="text-sm text-muted-foreground">{value.desc}</p>
               </div>
-              <h4 className="font-display font-bold text-foreground mb-2">{value.title}</h4>
-              <p className="text-sm text-muted-foreground">{value.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
