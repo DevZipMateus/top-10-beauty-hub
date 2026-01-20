@@ -5,66 +5,72 @@ import categoryMakeup from '@/assets/category-makeup.jpg';
 import categoryPerfume from '@/assets/category-perfume.jpg';
 import categoryCosmetics from '@/assets/category-cosmetics.jpg';
 import categoryAccessories from '@/assets/category-accessories.jpg';
-
 const Products = () => {
   const headerReveal = useScrollReveal();
   const priceReveal = useScrollReveal();
   const categoriesReveal = useScrollReveal();
   const ctaReveal = useScrollReveal();
-
-  const categories = [
-    {
-      image: categoryMakeup,
-      title: 'Maquiagens',
-      description: 'Batons, sombras, bases, corretivos, máscaras e muito mais para realçar sua beleza',
-      color: 'primary',
-    },
-    {
-      image: categoryPerfume,
-      title: 'Perfumaria',
-      description: 'Fragrâncias exclusivas e marcantes para todos os gostos e ocasiões',
-      color: 'gold',
-    },
-    {
-      image: categoryCosmetics,
-      title: 'Cosméticos',
-      description: 'Produtos para cuidados com pele, cabelo e corpo de alta qualidade',
-      color: 'accent',
-    },
-    {
-      image: categoryAccessories,
-      title: 'Acessórios',
-      description: 'Pincéis, esponjas, organizadores e tudo para sua rotina de beleza',
-      color: 'primary',
-    },
-  ];
-
+  const categories = [{
+    image: categoryMakeup,
+    title: 'Maquiagens',
+    description: 'Batons, sombras, bases, corretivos, máscaras e muito mais para realçar sua beleza',
+    color: 'primary'
+  }, {
+    image: categoryPerfume,
+    title: 'Perfumaria',
+    description: 'Fragrâncias exclusivas e marcantes para todos os gostos e ocasiões',
+    color: 'gold'
+  }, {
+    image: categoryCosmetics,
+    title: 'Cosméticos',
+    description: 'Produtos para cuidados com pele, cabelo e corpo de alta qualidade',
+    color: 'accent'
+  }, {
+    image: categoryAccessories,
+    title: 'Acessórios',
+    description: 'Pincéis, esponjas, organizadores e tudo para sua rotina de beleza',
+    color: 'primary'
+  }];
   const getColorClasses = (color: string) => {
-    const colors: Record<string, { bg: string; text: string; border: string; glow: string }> = {
-      primary: { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/30', glow: 'hover:glow-primary' },
-      gold: { bg: 'bg-gold/10', text: 'text-gold', border: 'border-gold/30', glow: 'hover:glow-gold' },
-      accent: { bg: 'bg-accent/10', text: 'text-accent', border: 'border-accent/30', glow: 'hover:glow-primary' },
+    const colors: Record<string, {
+      bg: string;
+      text: string;
+      border: string;
+      glow: string;
+    }> = {
+      primary: {
+        bg: 'bg-primary/10',
+        text: 'text-primary',
+        border: 'border-primary/30',
+        glow: 'hover:glow-primary'
+      },
+      gold: {
+        bg: 'bg-gold/10',
+        text: 'text-gold',
+        border: 'border-gold/30',
+        glow: 'hover:glow-gold'
+      },
+      accent: {
+        bg: 'bg-accent/10',
+        text: 'text-accent',
+        border: 'border-accent/30',
+        glow: 'hover:glow-primary'
+      }
     };
     return colors[color] || colors.primary;
   };
-
-  return (
-    <section id="produtos" className="relative py-20 overflow-hidden">
+  return <section id="produtos" className="relative py-20 overflow-hidden">
       {/* Background Image with Parallax */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: `url(${productsBg})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed" style={{
+      backgroundImage: `url(${productsBg})`
+    }} />
       
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div 
-          ref={headerReveal.ref}
-          className={`text-center mb-16 reveal ${headerReveal.isVisible ? 'visible' : ''}`}
-        >
+        <div ref={headerReveal.ref} className={`text-center mb-16 reveal ${headerReveal.isVisible ? 'visible' : ''}`}>
           <span className="inline-flex items-center gap-2 text-primary font-medium mb-4">
             <Sparkles size={16} className="animate-sparkle" />
             Nosso catálogo
@@ -78,10 +84,7 @@ const Products = () => {
         </div>
 
         {/* Price Highlight */}
-        <div 
-          ref={priceReveal.ref}
-          className={`relative mb-16 reveal-scale ${priceReveal.isVisible ? 'visible' : ''}`}
-        >
+        <div ref={priceReveal.ref} className={`relative mb-16 reveal-scale ${priceReveal.isVisible ? 'visible' : ''}`}>
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-gold/5 to-accent/5 rounded-3xl shimmer-bg" />
           <div className="relative glass-card rounded-3xl p-8 md:p-12 text-center shadow-elegant gradient-border">
             <div className="inline-flex items-center gap-3 bg-primary/10 px-6 py-3 rounded-full mb-6 animate-bounce-subtle">
@@ -98,24 +101,13 @@ const Products = () => {
         </div>
 
         {/* Categories Grid with Images */}
-        <div 
-          ref={categoriesReveal.ref}
-          className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children ${categoriesReveal.isVisible ? 'visible' : ''}`}
-        >
+        <div ref={categoriesReveal.ref} className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children ${categoriesReveal.isVisible ? 'visible' : ''}`}>
           {categories.map((category, index) => {
-            const colors = getColorClasses(category.color);
-            return (
-              <div
-                key={index}
-                className={`group glass-card rounded-2xl overflow-hidden border ${colors.border} ${colors.glow} hover-lift transition-all duration-500`}
-              >
+          const colors = getColorClasses(category.color);
+          return <div key={index} className={`group glass-card rounded-2xl overflow-hidden border ${colors.border} ${colors.glow} hover-lift transition-all duration-500`}>
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={category.image} 
-                    alt={category.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  <img src={category.image} alt={category.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
                   
                   {/* Shimmer overlay on hover */}
@@ -131,29 +123,13 @@ const Products = () => {
                     {category.description}
                   </p>
                 </div>
-              </div>
-            );
-          })}
+              </div>;
+        })}
         </div>
 
         {/* CTA */}
-        <div 
-          ref={ctaReveal.ref}
-          className={`text-center mt-12 reveal ${ctaReveal.isVisible ? 'visible' : ''}`}
-        >
-          <a
-            href="https://wa.me/5515999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg hover:bg-accent hover-glow transition-all duration-300 shadow-elegant group"
-          >
-            <Sparkles size={20} className="group-hover:animate-sparkle" />
-            Visite nossa loja
-          </a>
-        </div>
+        
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Products;
