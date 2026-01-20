@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,49 +18,65 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: '#inicio', label: 'Início' },
-    { href: '#sobre', label: 'Sobre' },
-    { href: '#produtos', label: 'Produtos' },
-    { href: '#contato', label: 'Contato' },
+    { href: '#inicio', label: 'Início', isAnchor: true },
+    { href: '#sobre', label: 'Sobre', isAnchor: true },
+    { href: '#produtos', label: 'Produtos', isAnchor: true },
+    { href: '/vitrine', label: 'Vitrine', isAnchor: false },
+    { href: '#contato', label: 'Contato', isAnchor: true },
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    if (isHomePage) {
+      const element = document.querySelector(href);
+      if (element) {
+        const headerOffset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/' + href;
     }
     setIsMobileMenuOpen(false);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
         isScrolled
           ? 'bg-background/95 backdrop-blur-md shadow-elegant'
-          : 'bg-transparent'
+          : 'bg-background/95 backdrop-blur-md'
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+      <div className="container mx-auto px-4 h-full">
+        <div className="flex items-center justify-between h-full">
           {/* Logo */}
-          <a href="#inicio" onClick={() => scrollToSection('#inicio')} className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="Top 10 Cosméticos" className="h-16 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group"
-              >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              link.isAnchor ? (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </Link>
+              )
             ))}
             <a
               href="https://wa.me/5515999999999"
@@ -85,13 +104,24 @@ const Header = () => {
         <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
             {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-foreground/80 hover:text-primary font-medium py-3 text-left transition-colors duration-200"
-              >
-                {link.label}
-              </button>
+              link.isAnchor ? (
+                <button
+                  key={link.href}
+                  onClick={() => scrollToSection(link.href)}
+                  className="text-foreground/80 hover:text-primary font-medium py-3 text-left transition-colors duration-200"
+                >
+                  {link.label}
+                </button>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-foreground/80 hover:text-primary font-medium py-3 text-left transition-colors duration-200"
+                >
+                  {link.label}
+                </Link>
+              )
             ))}
             <a
               href="https://wa.me/5515999999999"
