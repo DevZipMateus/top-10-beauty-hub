@@ -1,15 +1,20 @@
 import { Sparkles, Heart } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import heroBg from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden pt-20">
-      {/* Decorative Elements */}
-      <div className="absolute top-32 left-10 w-20 h-20 rounded-full bg-primary/10 blur-2xl" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 rounded-full bg-gold/10 blur-3xl" />
-      <div className="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-accent/5 blur-xl" />
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
       
-      <div className="container mx-auto px-4 py-20">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/80 to-background/95" />
+      
+      <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
           {/* Logo Animation */}
           <div className="relative mb-8 animate-fade-in">
@@ -58,17 +63,15 @@ const Hero = () => {
 
           {/* Trust Badges */}
           <div className="flex flex-wrap justify-center gap-8 mt-16 animate-fade-in" style={{ animationDelay: '1s' }}>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center bg-background/80 backdrop-blur-sm px-6 py-4 rounded-2xl">
               <span className="text-3xl font-display font-bold text-primary">Preço</span>
               <span className="text-sm text-muted-foreground">Único</span>
             </div>
-            <div className="w-px h-12 bg-border" />
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center bg-background/80 backdrop-blur-sm px-6 py-4 rounded-2xl">
               <span className="text-3xl font-display font-bold text-gold">Qualidade</span>
               <span className="text-sm text-muted-foreground">Garantida</span>
             </div>
-            <div className="w-px h-12 bg-border" />
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center bg-background/80 backdrop-blur-sm px-6 py-4 rounded-2xl">
               <span className="text-3xl font-display font-bold text-accent">Variedade</span>
               <span className="text-sm text-muted-foreground">Completa</span>
             </div>
