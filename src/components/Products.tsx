@@ -1,4 +1,5 @@
 import { Sparkles, Palette, Droplets, Gem } from 'lucide-react';
+import productsBg from '@/assets/products-bg.jpg';
 
 const Products = () => {
   const categories = [
@@ -38,8 +39,17 @@ const Products = () => {
   };
 
   return (
-    <section id="produtos" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="produtos" className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${productsBg})` }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-primary font-medium mb-4">
@@ -57,7 +67,7 @@ const Products = () => {
         {/* Price Highlight */}
         <div className="relative mb-16">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-gold/5 to-accent/5 rounded-3xl" />
-          <div className="relative bg-card border border-border rounded-3xl p-8 md:p-12 text-center shadow-elegant">
+          <div className="relative bg-card/90 backdrop-blur-sm border border-border rounded-3xl p-8 md:p-12 text-center shadow-elegant">
             <div className="inline-flex items-center gap-3 bg-primary/10 px-6 py-3 rounded-full mb-6">
               <Sparkles className="w-5 h-5 text-primary" />
               <span className="font-semibold text-primary">Diferencial exclusivo</span>
@@ -78,7 +88,7 @@ const Products = () => {
             return (
               <div
                 key={index}
-                className={`group bg-card rounded-2xl p-8 border ${colors.border} hover:shadow-elegant transition-all duration-300 hover:-translate-y-1`}
+                className={`group bg-card/90 backdrop-blur-sm rounded-2xl p-8 border ${colors.border} hover:shadow-elegant transition-all duration-300 hover:-translate-y-1`}
               >
                 <div className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
                   <category.icon className={`w-8 h-8 ${colors.text}`} />

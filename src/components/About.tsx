@@ -1,4 +1,5 @@
 import { Target, Eye, Heart, History, Sparkles, Shield, Users, TrendingUp } from 'lucide-react';
+import aboutBg from '@/assets/about-bg.jpg';
 
 const About = () => {
   const values = [
@@ -9,8 +10,17 @@ const About = () => {
   ];
 
   return (
-    <section id="sobre" className="py-20 bg-gradient-section">
-      <div className="container mx-auto px-4">
+    <section id="sobre" className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${aboutBg})` }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-primary font-medium mb-4">
@@ -29,7 +39,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div className="order-2 lg:order-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 bg-primary/10 rounded-xl">
+              <div className="p-3 bg-primary/10 rounded-xl backdrop-blur-sm">
                 <History className="w-6 h-6 text-primary" />
               </div>
               <h3 className="font-display text-2xl font-bold text-foreground">Nossa história</h3>
@@ -43,7 +53,7 @@ const About = () => {
           </div>
           <div className="order-1 lg:order-2 relative">
             <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl transform rotate-3" />
-            <div className="relative bg-secondary rounded-3xl p-8 shadow-elegant">
+            <div className="relative bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-elegant border border-border">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center p-4">
                   <span className="block text-4xl font-display font-bold text-primary">2025</span>
@@ -69,7 +79,7 @@ const About = () => {
         {/* Mission, Vision */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Mission */}
-          <div className="bg-card rounded-2xl p-8 shadow-elegant border border-border hover:border-primary/30 transition-colors duration-300">
+          <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-elegant border border-border hover:border-primary/30 transition-colors duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-primary/10 rounded-xl">
                 <Target className="w-6 h-6 text-primary" />
@@ -82,7 +92,7 @@ const About = () => {
           </div>
 
           {/* Vision */}
-          <div className="bg-card rounded-2xl p-8 shadow-elegant border border-border hover:border-gold/30 transition-colors duration-300">
+          <div className="bg-card/90 backdrop-blur-sm rounded-2xl p-8 shadow-elegant border border-border hover:border-gold/30 transition-colors duration-300">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-3 bg-gold/10 rounded-xl">
                 <Eye className="w-6 h-6 text-gold" />
@@ -103,7 +113,7 @@ const About = () => {
           {values.map((value, index) => (
             <div
               key={index}
-              className="group bg-card rounded-xl p-6 text-center border border-border hover:border-primary/30 hover:shadow-elegant transition-all duration-300"
+              className="group bg-card/90 backdrop-blur-sm rounded-xl p-6 text-center border border-border hover:border-primary/30 hover:shadow-elegant transition-all duration-300"
             >
               <div className="inline-flex p-4 bg-secondary rounded-full mb-4 group-hover:bg-primary/10 transition-colors duration-300">
                 <value.icon className="w-6 h-6 text-primary" />
