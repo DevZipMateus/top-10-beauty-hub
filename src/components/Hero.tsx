@@ -1,4 +1,5 @@
 import { Sparkles, Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 import heroBg from '@/assets/hero-bg.jpg';
 
@@ -52,13 +53,13 @@ const Hero = () => {
               <Sparkles size={20} />
               Visite nossa loja
             </a>
-            <a
-              href="#produtos"
+            <Link
+              to="/vitrine"
               className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded-full font-semibold text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300"
             >
               <Heart size={20} />
               Ver produtos
-            </a>
+            </Link>
           </div>
 
           {/* Trust Badges */}
