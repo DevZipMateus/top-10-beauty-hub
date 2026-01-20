@@ -6,9 +6,18 @@ const Vitrine = () => {
     // Disable body scroll when component mounts
     document.body.style.overflow = 'hidden';
     
-    // Re-enable scroll when component unmounts
+    // Hide MonteSite badge on this page
+    const montesiteBadge = document.getElementById('montesite-footer-badge');
+    if (montesiteBadge) {
+      montesiteBadge.style.display = 'none';
+    }
+    
+    // Re-enable scroll and show badge when component unmounts
     return () => {
       document.body.style.overflow = 'auto';
+      if (montesiteBadge) {
+        montesiteBadge.style.display = '';
+      }
     };
   }, []);
 
