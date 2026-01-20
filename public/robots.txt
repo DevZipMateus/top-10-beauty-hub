@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://www.top10cosmeticos.com.br/sitemap.xml
