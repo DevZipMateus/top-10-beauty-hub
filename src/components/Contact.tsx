@@ -1,6 +1,7 @@
-import { MapPin, Phone, Mail, Clock, Instagram, Sparkles } from 'lucide-react';
+import { MapPin, Mail, Clock, Instagram, Sparkles } from 'lucide-react';
 import useScrollReveal from '@/hooks/useScrollReveal';
 import contactBg from '@/assets/contact-bg.jpg';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Contact = () => {
   const headerReveal = useScrollReveal();
@@ -107,7 +108,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 sm:gap-3 bg-primary text-primary-foreground p-4 sm:p-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-accent hover-glow transition-all duration-300 shadow-elegant group"
             >
-              <Phone className="w-5 h-5 sm:w-6 sm:h-6 group-hover:animate-bounce-subtle" />
+              <img src={whatsappIcon} alt="WhatsApp" className="w-6 h-6 sm:w-7 sm:h-7 group-hover:animate-bounce-subtle" />
               Fale pelo WhatsApp
             </a>
           </div>
