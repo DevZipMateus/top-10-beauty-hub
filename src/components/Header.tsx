@@ -42,27 +42,27 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 h-20 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 h-16 sm:h-20 transition-all duration-300 ${
         isScrolled
           ? 'bg-background/95 backdrop-blur-md shadow-elegant'
           : 'bg-background/95 backdrop-blur-md'
       }`}
     >
-      <div className="container mx-auto px-4 h-full">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Top 10 Cosméticos" className="h-16 w-auto" />
+            <img src={logo} alt="Top 10 Cosméticos" className="h-12 sm:h-14 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               link.isAnchor ? (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group"
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group text-sm xl:text-base"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -71,7 +71,7 @@ const Header = () => {
                 <Link
                   key={link.href}
                   to={link.href}
-                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group"
+                  className="text-foreground/80 hover:text-primary font-medium transition-colors duration-200 relative group text-sm xl:text-base"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -82,7 +82,7 @@ const Header = () => {
               href="https://wa.me/5515999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-medium hover:bg-accent transition-colors duration-200 shadow-elegant"
+              className="bg-primary text-primary-foreground px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-medium hover:bg-accent transition-colors duration-200 shadow-elegant text-sm xl:text-base"
             >
               Fale conosco
             </a>
@@ -91,7 +91,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground"
             aria-label="Menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -101,14 +101,14 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border">
-          <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
+        <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <nav className="container mx-auto px-4 sm:px-6 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               link.isAnchor ? (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-foreground/80 hover:text-primary font-medium py-3 text-left transition-colors duration-200"
+                  className="text-foreground/80 hover:text-primary hover:bg-primary/5 font-medium py-3 px-4 text-left transition-colors duration-200 rounded-lg"
                 >
                   {link.label}
                 </button>
@@ -117,7 +117,7 @@ const Header = () => {
                   key={link.href}
                   to={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground/80 hover:text-primary font-medium py-3 text-left transition-colors duration-200"
+                  className="text-foreground/80 hover:text-primary hover:bg-primary/5 font-medium py-3 px-4 text-left transition-colors duration-200 rounded-lg"
                 >
                   {link.label}
                 </Link>
@@ -127,7 +127,7 @@ const Header = () => {
               href="https://wa.me/5515999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium text-center hover:bg-accent transition-colors duration-200 mt-2"
+              className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium text-center hover:bg-accent transition-colors duration-200 mt-3"
             >
               Fale conosco
             </a>
