@@ -21,8 +21,8 @@ const Vitrine = () => {
       <div className="h-20 flex-shrink-0" />
       
       {/* Main Content - iframe */}
-      {/* Height = 100vh - 80px (header) - 63px (badge) = calc(100vh - 143px) */}
-      <main className="flex-1 w-full" style={{ height: 'calc(100vh - 80px - 63px)' }}>
+      {/* Height = 100vh - 80px (header) */}
+      <main className="flex-1 w-full" style={{ height: 'calc(100vh - 80px)' }}>
         <iframe 
           src="https://top10cosmeticos.egestor.com.br/vitrine/"
           className="w-full h-full border-none"
@@ -30,9 +30,6 @@ const Vitrine = () => {
           loading="lazy"
         />
       </main>
-      
-      {/* Badge Space - 63px */}
-      <div className="h-[63px] flex-shrink-0 w-full" />
     </div>
   );
 };
