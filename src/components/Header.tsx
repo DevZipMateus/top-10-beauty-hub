@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
+import whatsappIcon from '@/assets/whatsapp-icon.png';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -82,8 +83,9 @@ const Header = () => {
               href="https://wa.me/5515999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-medium hover:bg-accent transition-colors duration-200 shadow-elegant text-sm xl:text-base"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-medium hover:bg-accent transition-colors duration-200 shadow-elegant text-sm xl:text-base"
             >
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
               Fale conosco
             </a>
           </nav>
@@ -127,8 +129,9 @@ const Header = () => {
               href="https://wa.me/5515999999999"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium text-center hover:bg-accent transition-colors duration-200 mt-3"
+              className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium text-center hover:bg-accent transition-colors duration-200 mt-3"
             >
+              <img src={whatsappIcon} alt="WhatsApp" className="w-5 h-5" />
               Fale conosco
             </a>
           </nav>
