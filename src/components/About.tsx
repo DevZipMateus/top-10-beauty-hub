@@ -11,9 +11,9 @@ const About = () => {
 
   return (
     <section id="sobre" className="relative py-20 overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{ backgroundImage: `url(${aboutBg})` }}
       />
       
