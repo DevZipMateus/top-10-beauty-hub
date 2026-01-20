@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock, Instagram, Sparkles } from 'lucide-react';
+import contactBg from '@/assets/contact-bg.jpg';
 
 const Contact = () => {
   const contactInfo = [
@@ -29,8 +30,17 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contato" className="py-20 bg-gradient-section">
-      <div className="container mx-auto px-4">
+    <section id="contato" className="relative py-20 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${contactBg})` }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95" />
+      
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-2 text-primary font-medium mb-4">
@@ -51,7 +61,7 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="flex gap-4 p-6 bg-card rounded-2xl border border-border hover:border-primary/30 hover:shadow-elegant transition-all duration-300"
+                className="flex gap-4 p-6 bg-card/90 backdrop-blur-sm rounded-2xl border border-border hover:border-primary/30 hover:shadow-elegant transition-all duration-300"
               >
                 <div className="flex-shrink-0 p-3 bg-primary/10 rounded-xl h-fit">
                   <info.icon className="w-6 h-6 text-primary" />
@@ -94,7 +104,7 @@ const Contact = () => {
           {/* Map */}
           <div className="relative">
             <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-xl transform -rotate-2" />
-            <div className="relative bg-card rounded-2xl overflow-hidden border border-border shadow-elegant h-full min-h-[400px]">
+            <div className="relative bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-border shadow-elegant h-full min-h-[400px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.0!2d-47.4557!3d-23.4678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI4JzA0LjEiUyA0N8KwMjcnMjAuNSJX!5e0!3m2!1spt-BR!2sbr!4v1"
                 width="100%"
