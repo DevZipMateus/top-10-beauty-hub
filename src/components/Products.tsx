@@ -1,28 +1,32 @@
-import { Sparkles, Palette, Droplets, Gem } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import productsBg from '@/assets/products-bg.jpg';
+import categoryMakeup from '@/assets/category-makeup.jpg';
+import categoryPerfume from '@/assets/category-perfume.jpg';
+import categoryCosmetics from '@/assets/category-cosmetics.jpg';
+import categoryAccessories from '@/assets/category-accessories.jpg';
 
 const Products = () => {
   const categories = [
     {
-      icon: Palette,
+      image: categoryMakeup,
       title: 'Maquiagens',
       description: 'Batons, sombras, bases, corretivos, máscaras e muito mais para realçar sua beleza',
       color: 'primary',
     },
     {
-      icon: Droplets,
+      image: categoryPerfume,
       title: 'Perfumaria',
       description: 'Fragrâncias exclusivas e marcantes para todos os gostos e ocasiões',
       color: 'gold',
     },
     {
-      icon: Sparkles,
+      image: categoryCosmetics,
       title: 'Cosméticos',
       description: 'Produtos para cuidados com pele, cabelo e corpo de alta qualidade',
       color: 'accent',
     },
     {
-      icon: Gem,
+      image: categoryAccessories,
       title: 'Acessórios',
       description: 'Pincéis, esponjas, organizadores e tudo para sua rotina de beleza',
       color: 'primary',
@@ -31,9 +35,9 @@ const Products = () => {
 
   const getColorClasses = (color: string) => {
     const colors: Record<string, { bg: string; text: string; border: string }> = {
-      primary: { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/20' },
-      gold: { bg: 'bg-gold/10', text: 'text-gold', border: 'border-gold/20' },
-      accent: { bg: 'bg-accent/10', text: 'text-accent', border: 'border-accent/20' },
+      primary: { bg: 'bg-primary/10', text: 'text-primary', border: 'border-primary/30' },
+      gold: { bg: 'bg-gold/10', text: 'text-gold', border: 'border-gold/30' },
+      accent: { bg: 'bg-accent/10', text: 'text-accent', border: 'border-accent/30' },
     };
     return colors[color] || colors.primary;
   };
@@ -81,24 +85,34 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Categories Grid */}
+        {/* Categories Grid with Images */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => {
             const colors = getColorClasses(category.color);
             return (
               <div
                 key={index}
-                className={`group bg-card/90 backdrop-blur-sm rounded-2xl p-8 border ${colors.border} hover:shadow-elegant transition-all duration-300 hover:-translate-y-1`}
+                className={`group bg-card/90 backdrop-blur-sm rounded-2xl overflow-hidden border ${colors.border} hover:shadow-elegant transition-all duration-300 hover:-translate-y-2`}
               >
-                <div className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <category.icon className={`w-8 h-8 ${colors.text}`} />
+                {/* Image */}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={category.image} 
+                    alt={category.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-foreground mb-3">
-                  {category.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {category.description}
-                </p>
+                
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-3">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {category.description}
+                  </p>
+                </div>
               </div>
             );
           })}

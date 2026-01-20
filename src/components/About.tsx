@@ -1,5 +1,6 @@
 import { Target, Eye, Heart, History, Sparkles, Shield, Users, TrendingUp } from 'lucide-react';
 import aboutBg from '@/assets/about-bg.jpg';
+import storeInterior from '@/assets/store-interior.jpg';
 
 const About = () => {
   const values = [
@@ -53,23 +54,23 @@ const About = () => {
           </div>
           <div className="order-1 lg:order-2 relative">
             <div className="absolute inset-0 bg-primary/10 rounded-3xl blur-2xl transform rotate-3" />
-            <div className="relative bg-card/90 backdrop-blur-sm rounded-3xl p-8 shadow-elegant border border-border">
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center p-4">
-                  <span className="block text-4xl font-display font-bold text-primary">2025</span>
-                  <span className="text-sm text-muted-foreground">Fundação</span>
-                </div>
-                <div className="text-center p-4">
-                  <span className="block text-4xl font-display font-bold text-gold">100%</span>
-                  <span className="text-sm text-muted-foreground">Preço único</span>
-                </div>
-                <div className="text-center p-4">
-                  <span className="block text-4xl font-display font-bold text-accent">+1000</span>
-                  <span className="text-sm text-muted-foreground">Produtos</span>
-                </div>
-                <div className="text-center p-4">
-                  <span className="block text-4xl font-display font-bold text-primary">5★</span>
-                  <span className="text-sm text-muted-foreground">Avaliação</span>
+            <div className="relative rounded-3xl overflow-hidden shadow-elegant border border-border">
+              <img 
+                src={storeInterior} 
+                alt="Interior da loja Top 10 Cosméticos" 
+                className="w-full h-80 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3">
+                    <span className="block text-2xl font-display font-bold text-primary">2025</span>
+                    <span className="text-xs text-muted-foreground">Fundação</span>
+                  </div>
+                  <div className="text-center bg-background/90 backdrop-blur-sm rounded-xl p-3">
+                    <span className="block text-2xl font-display font-bold text-gold">100%</span>
+                    <span className="text-xs text-muted-foreground">Preço único</span>
+                  </div>
                 </div>
               </div>
             </div>
