@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="sm:col-span-2 lg:col-span-1">
             <img src={logo} alt="Top 10 Cosméticos" className="h-16 sm:h-20 w-auto mb-3 sm:mb-4 brightness-0 invert" />
             <p className="text-primary-foreground/70 leading-relaxed text-sm sm:text-base">
-              Sua loja de preço único em cosméticos, perfumaria, maquiagens e acessórios. Beleza ao alcance de todos em Sorocaba!
+              Sua loja de cosméticos, perfumaria, maquiagens e acessórios com preços acessíveis. Beleza ao alcance de todos em Sorocaba!
             </p>
           </div>
 
@@ -53,11 +53,11 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="mailto:Inery66@gmail.com"
+                  href="mailto:top10cosmeticossorocaba@gmail.com"
                   className="flex items-center gap-2 sm:gap-3 text-primary-foreground/70 hover:text-primary transition-colors duration-200"
                 >
                   <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
-                  <span className="text-sm sm:text-base break-all">Inery66@gmail.com</span>
+                  <span className="text-sm sm:text-base break-all">top10cosmeticossorocaba@gmail.com</span>
                 </a>
               </li>
               <li>

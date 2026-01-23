@@ -79,7 +79,7 @@ const Products = () => {
             Nossos produtos
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2">
-            Tudo a preço único! Descubra nossa variedade de produtos de beleza selecionados com carinho para você.
+            Descubra nossa variedade de produtos de beleza selecionados com carinho para você, com preços acessíveis!
           </p>
         </div>
 
@@ -92,10 +92,10 @@ const Products = () => {
               <span className="font-semibold text-primary text-sm sm:text-base">Diferencial exclusivo</span>
             </div>
             <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-3 sm:mb-4 px-2">
-              Todos os produtos por <span className="text-gradient">preço único!</span>
+              Produtos com <span className="text-gradient">os melhores preços!</span>
             </h3>
             <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base px-2">
-              Na Top 10 Cosméticos você encontra qualidade e variedade sem surpresas no caixa. Beleza acessível para todos!
+              Na Top 10 Cosméticos você encontra qualidade e variedade com preços acessíveis. Beleza ao alcance de todos!
             </p>
           </div>
         </div>
