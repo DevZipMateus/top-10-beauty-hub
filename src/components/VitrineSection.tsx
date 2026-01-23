@@ -55,8 +55,8 @@ const VitrineSection = () => {
                     <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-gold group-hover:animate-sparkle" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground text-base sm:text-lg mb-1">Preço Único</h3>
-                    <p className="text-muted-foreground text-sm sm:text-base">Todos os produtos com o melhor custo-benefício da região.</p>
+                    <h3 className="font-semibold text-foreground text-base sm:text-lg mb-1">Melhor Custo-Benefício</h3>
+                    <p className="text-muted-foreground text-sm sm:text-base">Produtos de qualidade com os melhores preços da região.</p>
                   </div>
                 </div>
 

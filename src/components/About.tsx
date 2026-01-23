@@ -43,7 +43,7 @@ const About = () => {
             Sobre a empresa
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto px-2">
-            Sua loja de cosméticos, perfumaria, maquiagens e acessórios a preço único
+            Sua loja de cosméticos, perfumaria, maquiagens e acessórios com preços acessíveis
           </p>
         </div>
 
@@ -63,7 +63,7 @@ const About = () => {
               A Top 10 Cosméticos surge após uma pesquisa de mercado identificando uma carência da região na oferta de cosméticos, maquiagens, acessórios e perfumaria.
             </p>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              Inaugurada em <span className="text-primary font-semibold">13 de dezembro de 2025</span>, a Top 10 surge para fortalecer a região atuando nas necessidades da população local, oferecendo produtos de qualidade a preço único.
+              Inaugurada em <span className="text-primary font-semibold">13 de dezembro de 2025</span>, a Top 10 surge para fortalecer a região atuando nas necessidades da população local, oferecendo produtos de qualidade com preços acessíveis.
             </p>
           </div>
           <div 
@@ -85,8 +85,8 @@ const About = () => {
                     <span className="text-xs text-muted-foreground">Fundação</span>
                   </div>
                   <div className="text-center bg-background/90 backdrop-blur-sm rounded-lg sm:rounded-xl p-2 sm:p-3 hover-lift">
-                    <span className="block text-xl sm:text-2xl font-display font-bold text-gold">100%</span>
-                    <span className="text-xs text-muted-foreground">Preço único</span>
+                    <span className="block text-xl sm:text-2xl font-display font-bold text-gold">+500</span>
+                    <span className="text-xs text-muted-foreground">Produtos</span>
                   </div>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const About = () => {
               <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">Missão</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              Oferecer produtos de cosméticos, perfumaria, maquiagem e acessórios com preço único, qualidade e variedade, proporcionando uma experiência de compra acessível, prática e confiável, valorizando a autoestima e o bem-estar de nossos clientes.
+              Oferecer produtos de cosméticos, perfumaria, maquiagem e acessórios com qualidade, variedade e preços acessíveis, proporcionando uma experiência de compra prática e confiável, valorizando a autoestima e o bem-estar de nossos clientes.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ const About = () => {
               <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">Visão</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-              Ser reconhecida como referência em loja de preço único no segmento de beleza, destacando-se pela diversidade de produtos, excelência no atendimento e compromisso com a satisfação do cliente, tornando o cuidado pessoal acessível a todos.
+              Ser reconhecida como referência no segmento de beleza, destacando-se pela diversidade de produtos, excelência no atendimento e compromisso com a satisfação do cliente, tornando o cuidado pessoal acessível a todos.
             </p>
           </div>
         </div>

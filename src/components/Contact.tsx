@@ -24,8 +24,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      content: 'Inery66@gmail.com',
-      link: 'mailto:Inery66@gmail.com',
+      content: 'top10cosmeticossorocaba@gmail.com',
+      link: 'mailto:top10cosmeticossorocaba@gmail.com',
     },
     {
       icon: Instagram,

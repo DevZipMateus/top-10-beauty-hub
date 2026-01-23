@@ -35,7 +35,7 @@ const Hero = () => {
 
           {/* Subtitle */}
           <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-muted-foreground font-light mb-6 sm:mb-8 animate-fade-in px-2" style={{ animationDelay: '0.4s' }}>
-            Sua loja de <span className="text-primary font-medium">preço único</span> em cosméticos, perfumaria, maquiagens e acessórios
+            Sua loja de cosméticos, perfumaria, maquiagens e acessórios com <span className="text-primary font-medium">preços acessíveis</span>
           </h2>
 
           {/* Description */}
