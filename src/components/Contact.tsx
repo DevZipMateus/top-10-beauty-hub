@@ -103,7 +103,7 @@ const Contact = () => {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/5515999999999"
+              href="https://wa.me/5515991416446"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 sm:gap-3 bg-primary text-primary-foreground p-4 sm:p-6 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-accent hover-glow transition-all duration-300 shadow-elegant group"
